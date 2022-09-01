@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Solid;
+use App\Solid\Areacalculate;
+use App\Solid\Rectangle;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +18,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+Route::get('/openclosed', function () {
+    return (new Areacalculate)->totalarea([
+        new Rectangle(20,12)
+    ]);
+    // return view('welcome');
 });
